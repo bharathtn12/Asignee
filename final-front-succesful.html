@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Asignee</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Allan' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <div class="wrapper">
+                <h1>
+                    Asignee
+                </h1>
+                <div class="sub-content">
+                    Assign tasks and projects amongst yourself
+                </div>
+            </div>
+
+        </header>
+        <div class="wrapper">
+
+            <div class="create-task">
+                <h2>
+                    Create Task
+                </h2>
+                <div class="input-cont">
+                    <input type="text" id="taskName" placeholder="Task Name">
+                    <button class="btn" onclick="addTask()"><span class="space fa fa-pencil"></span> Create</button>
+                </div>
+            </div>
+
+            <div class="assign-task">
+                <h2>
+                    Assign Task
+                </h2>
+                <div class="container">
+                    <div class="new-task">
+
+                        <h3>New Task</h3>
+                        <div class="taskWrapper">
+                            <div class="target" id="target"></div>
+                        </div>
+                    </div>
+
+                    <div class="development">
+                        <h3> Development</h3>
+                        <div class="devWrapper">
+                            <div class="devTarget" id="devTarget"></div>
+                        </div>
+                    </div>
+                    <div class="testing">
+                        <h3>Testing</h3>
+                        <div class="testWrapper">
+                            <div class="testTarget" id="testTarget"></div>
+                        </div>
+                    </div>
+                    <div class="completed">
+                        <h3>Completed</h3>
+                        <div class="compWrapper">
+                            <div class="compTarget" id="compTarget"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        var elements = [],
+            elementsDev = [],
+            elementsTest = [],
+            elementsCompl = [],
+            selectedObject = [],
+            backObject=[];
+        var i = 0,
+            j = 0,
+            l = 0,x=0,y=0;
+
+        function addTask() {
+            var task = $("#taskName").val();
+
+            elements.push({
+                'task': task,
+                'assignee': ''
+            });
+
+            var ele = "<div>" + elements[i].task +
+                "</p><br>" +
+                "<select id=" + elements[i].task + " name=" + elements[i].task + ">" + ` <option value='volvo' select disabled>Select Enginner</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option> ` + " </select>" + "<button class='btn1' onclick='addToDevelopment(\"" + i + "\")'>Assign</button>" + "</div>";
+            $("#target").append(ele);
+            i++;
+        }
+
+        function addToDevelopment(index) {
+
+
+
+            var selectedAssigne = $('#' + elements[index].task + ' :selected').text();
+            elementsDev.push({
+                'task': elements[index].task,
+                'selectedAssigne': selectedAssigne
+            });
+
+
+            for (var k = 0; k < elements.length; k++) {
+                for (var t = 0; t < elementsDev.length; t++) {
+                    if (elements[k].task === elementsDev[t].task) {
+
+                        elements.splice(k, 1);
+                    }
+                }
+            }
+
+
+            var ele = "<div><p>" + elementsDev[j].task +
+                "</p><br><p> Assigned To:" + elementsDev[j].selectedAssigne +
+                "<button class='btn1' onclick='addToTesting(\"" + j + "\")'>Dev Complete</button> </div>";
+            $("#devTarget").append(ele);
+
+            var oldEle = "";
+            for (var p = 0; p < elements.length; p++) {
+
+                oldEle = oldEle + "<div>" + elements[p].task +
+                    "</p><br>" +
+                    "<select id=" + elements[p].task + " name=" + elements[p].task + ">" + ` <option value='volvo' select disabled>Select Enginner</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option> ` + " </select>" + "<button class='btn1' onclick='addToDevelopment(\"" + p + "\")'>Assign</button>" + "</div>";
+
+            }
+            $("#target").html(oldEle);
+            j++;
+
+        }
+
+        function addToTesting(index) {
+
+
+            elementsTest.push({
+                'task': elementsDev[index].task,
+                'selectedAssigne': elementsDev[index].selectedAssigne
+            });
+
+            for (var m = 0; m < elementsDev.length; m++) {
+                for (var n = 0; n < elementsTest.length; n++) {
+
+                    if (elementsDev[m].task === elementsTest[n].task) {
+
+                        elementsDev.splice(m, 1);
+                    }
+                }
+            }
+
+            var ele = "<div><p>" + elementsTest[l].task +
+                "</p><br><p> Assigned To:" + elementsTest[l].selectedAssigne +
+                "<button class='btn1' onclick='addToComplete(\"" + l + "\")'>Test Complete</button>"+
+                "<button class='btn1' onclick='goBack(\"" + l + "\")'>Back to Dev</button> </div>";
+            $("#testTarget").append(ele);
+
+
+            var oldEle = "";
+            for (var p = 0; p < elementsDev.length; p++) {
+
+                oldEle = oldEle + "<div><p>" + elementsDev[p].task +
+                    "</p><br><p> Assigned To:" + elementsDev[p].selectedAssigne +
+                    "<button class='btn1' onclick='addToTesting(\"" + p + "\")'>Dev Complete</button> </div>";
+
+            }
+            $("#devTarget").html(oldEle);
+            l++;
+        }
+
+        function addToComplete(index) {
+
+            elementsCompl.push({
+                'task': elementsTest[index].task,
+                'selectedAssigne': elementsTest[index].selectedAssigne
+            });
+
+
+            for (var g = 0; g < elementsTest.length; g++) {
+                for (var h = 0; h < elementsCompl.length; h++) {
+                    if (elementsTest[g].task === elementsCompl[h].task) {
+                        elementsTest.splice(g, 1);
+                    }
+                }
+            }
+            var ele = "<div><p>" + elementsCompl[x].task +
+                "</p><br><p> Assigned To:" + elementsCompl[x].selectedAssigne +
+                "</div>";
+            $("#compTarget").append(ele);
+
+
+            var oldEle = "";
+            for (var p = 0; p < elementsTest.length; p++) {
+                oldEle = oldEle + "<div><p>" + elementsTest[p].task +
+                    "</p><br><p> Assigned To:" + elementsTest[p].selectedAssigne +
+                    "<button class='btn1' onclick='addToComplete(\"" + p + "\")'>Test"+ " Complete</button>"+
+                    "<button class='btn1' onclick='goBack(\"" + l + "\")'>Back to Dev</button></div>";
+
+            }
+
+            $("#testTarget").html(oldEle);
+            x++;
+        }
+
+       /* function goBack(index){
+            console.log("index :",index);
+
+            backObject.push({
+                'task': elementsTest[index].task,
+                'selectedAssigne': elementsTest[index].selectedAssigne
+            });
+            console.log("backObject",backObject);
+
+            console.log("elementsTest",elementsTest);
+
+            for (var g = 0; g < elementsTest.length; g++) {
+                for (var h = 0; h < backObject.length; h++) {
+                    if (elementsTest[g].task === backObject[h].task) {
+                            console.log("found : ",elementsTest[g])
+                      elementsTest.splice(g, 1);
+                    }
+                }
+            }
+
+
+
+            var ele = "<div><p>" + backObject[y].task +
+                    "</p><br><p> Assigned To:" + backObject[y].selectedAssigne +
+                    "<button class='btn1' onclick='addToTesting(\"" + y + "\")'>Dev Complete</button> </div>";
+            $("#devTarget").append(ele);
+
+
+            var oldEle = "";
+            for (var p = 0; p < elementsTest.length; p++) {
+                oldEle = oldEle + "<div><p>" + elementsTest[p].task +
+                    "</p><br><p> Assigned To:" + elementsTest[p].selectedAssigne +
+                    "<button class='btn1' onclick='addToComplete(\"" + p + "\")'>Dev Complete</button> </div>";
+
+            }
+
+            $("#testTarget").html(oldEle);
+            y++;
+        }
+*/
+    </script>
+</body>
+
+
+</html>
