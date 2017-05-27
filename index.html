@@ -154,16 +154,21 @@
 
 
 
-            if (backObject.length !== 0) {
-                elementsDev.push({
-                    'task': backObject[index].task,
-                    'selectedAssigne': backObject[index].selectedAssigne
-                });
+            if (backObject.length >= 1) {
+
+                for (var o = 0; o < backObject.length; o++) {
+                    elementsDev.push({
+                        'task': backObject[o].task,
+                        'selectedAssigne': backObject[o].selectedAssigne
+                    });
+                }
             }
-            backObject.splice(0, 1);
+
+            backObject.splice(0,backObject.length)
             console.log("backObject", backObject);
             console.log("elementsTest", elementsTest);
             console.log("elementsDev", elementsDev);
+
             elementsTest.push({
                 'task': elementsDev[index].task,
                 'selectedAssigne': elementsDev[index].selectedAssigne
