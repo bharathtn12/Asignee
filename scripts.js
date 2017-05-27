@@ -29,14 +29,11 @@
 
  function addToDevelopment(index) {
 
-
-
      var selectedAssigne = $('#' + elements[index].id + ' :selected').text();
      elementsDev.push({
          'task': elements[index].task,
          'selectedAssigne': selectedAssigne
      });
-
 
      for (var k = 0; k < elements.length; k++) {
          for (var t = 0; t < elementsDev.length; t++) {
@@ -63,7 +60,6 @@
                 <option value="john">John</option>
                 <option value="abhi">Abhi</option>
                 <option value="bharath">Bharath</option> ` + " </select>" + "<button class='btn1' onclick='addToDevelopment(\"" + p + "\")'>Assign</button>" + "</div>";
-
      }
      $("#target").html(oldEle);
 
@@ -88,9 +84,7 @@
 
      for (var m = 0; m < elementsDev.length; m++) {
          for (var n = 0; n < elementsTest.length; n++) {
-
              if (elementsDev[m].task === elementsTest[n].task) {
-
                  elementsDev.splice(m, 1);
              }
          }
@@ -104,14 +98,12 @@
 
      $("#testTarget").append(ele);
 
-
      var oldEle = "";
      for (var p = 0; p < elementsDev.length; p++) {
 
          oldEle = oldEle + "<div><p>" + elementsDev[p].task +
              "</p><br><p> Assigned to :" + elementsDev[p].selectedAssigne +
              "<button class='btn1' onclick='addToTesting(\"" + p + "\")'>Dev Complete</button> </div>";
-
      }
      backObject.splice(0, backObject.length);
      $("#devTarget").html(oldEle);
@@ -124,7 +116,6 @@
          'task': elementsTest[index].task,
          'selectedAssigne': elementsTest[index].selectedAssigne
      });
-
 
      for (var g = 0; g < elementsTest.length; g++) {
          for (var h = 0; h < elementsCompl.length; h++) {
@@ -139,14 +130,12 @@
          "</div>";
      $("#compTarget").append(ele);
 
-
      var oldEle = "";
      for (var p = 0; p < elementsTest.length; p++) {
          oldEle = oldEle + "<div><p>" + elementsTest[p].task +
              "</p><br><p> Assigned to :" + elementsTest[p].selectedAssigne +
              "<button class='btn3' onclick='addToComplete(\"" + p + "\")'>Test" + " Complete</button></p>" +
              "<button class='btn2' onclick='goBack(\"" + p + "\")'>Back to Dev</button></div>";
-
      }
 
      $("#testTarget").html(oldEle);
@@ -158,7 +147,6 @@
          'task': elementsTest[index].task,
          'selectedAssigne': elementsTest[index].selectedAssigne
      });
-
 
      for (var g = 0; g < elementsTest.length; g++) {
          for (var h = 0; h < backObject.length; h++) {
@@ -175,13 +163,11 @@
          "<button class='btn1' onclick='addToTesting(\"" + backIndex + "\")'>Dev Complete</button> </div>";
      $("#devTarget").append(ele);
 
-
      var oldEle = "";
      for (var p = 0; p < elementsTest.length; p++) {
          oldEle = oldEle + "<div><p>" + elementsTest[p].task +
              "</p><br><p> Assigned to :" + elementsTest[p].selectedAssigne +
              "<button class='btn3' onclick='addToComplete(\"" + p + "\")'>Dev Complete</button>" + "</p>" + "<button class='btn2' onclick='goBack(\"" + p + "\")'>Back to Dev</button></div>";
-
      }
 
      $("#testTarget").html(oldEle);
