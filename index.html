@@ -147,13 +147,6 @@
         }
 
         function addToTesting(index) {
-
-            console.log("backObject", backObject)
-
-            console.log("elementsDev", elementsDev)
-
-
-
             if (backObject.length >= 1) {
 
                 for (var o = 0; o < backObject.length; o++) {
@@ -164,17 +157,10 @@
                 }
             }
 
-            backObject.splice(0,backObject.length)
-            console.log("backObject", backObject);
-            console.log("elementsTest", elementsTest);
-            console.log("elementsDev", elementsDev);
-
             elementsTest.push({
                 'task': elementsDev[index].task,
                 'selectedAssigne': elementsDev[index].selectedAssigne
             });
-            console.log("AfterloopelementsTest", elementsTest)
-
 
             for (var m = 0; m < elementsDev.length; m++) {
                 for (var n = 0; n < elementsTest.length; n++) {
@@ -191,6 +177,7 @@
                 "</p><br><p> Assigned To:" + elementsTest[insertElemenet].selectedAssigne +
                 "<button class='btn3' onclick='addToComplete(\"" + insertElemenet + "\")'>Test Complete</button></p>" +
                 "<button class='btn2' onclick='goBack(\"" + insertElemenet + "\")'>Back to Dev</button> </div>";
+
             $("#testTarget").append(ele);
 
 
@@ -202,6 +189,7 @@
                     "<button class='btn1' onclick='addToTesting(\"" + p + "\")'>Dev Complete</button> </div>";
 
             }
+            backObject.splice(0, backObject.length);
             $("#devTarget").html(oldEle);
 
         }
@@ -242,8 +230,6 @@
         }
 
         function goBack(index) {
-            console.log("index :", index);
-
             backObject.push({
                 'task': elementsTest[index].task,
                 'selectedAssigne': elementsTest[index].selectedAssigne
@@ -258,11 +244,11 @@
                 }
             }
 
-
+            var backIndex = elementsDev.length;
             var insertElemenet = backObject.length - 1;
             var ele = "<div><p>" + backObject[insertElemenet].task +
                 "</p><br><p> Assigned To:" + backObject[insertElemenet].selectedAssigne +
-                "<button class='btn1' onclick='addToTesting(\"" + insertElemenet + "\")'>Dev Complete</button> </div>";
+                "<button class='btn1' onclick='addToTesting(\"" + backIndex + "\")'>Dev Complete</button> </div>";
             $("#devTarget").append(ele);
 
 
