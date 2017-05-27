@@ -2,6 +2,10 @@
 
 This is an project on assignment of the employees in software development life cycle.
 
+## Live Demo
+
+http://assigne-bharath.surge.sh/
+
 ## Technology used: HTML, CSS and Javascript Only. 
 
 NO UI Frameworks like Bootstrap or Materialize is used.
