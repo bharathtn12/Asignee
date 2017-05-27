@@ -27,3 +27,5 @@ Functionality
    3. Once Development Done User Clicks Dev Complete and Task moves to Testing Column 
    
    4. After testing is done, User Clicks Test Complete and the Item moves to Completed  Column if User Clicks Back to Dev  Task will go back to Development Column
+   
+Note : It is not responsive
