@@ -126,7 +126,7 @@
             var insertElemenet = elementsDev.length - 1;
 
             var ele = "<div><p>" + elementsDev[insertElemenet].task +
-                "</p><br><p> Assigned To:" + elementsDev[insertElemenet].selectedAssigne +
+                "</p><br><p> Assigned to: " + elementsDev[insertElemenet].selectedAssigne +
                 "<button class='btn1' onclick='addToTesting(\"" + insertElemenet + "\")'>Dev Complete</button> </div>";
             $("#devTarget").append(ele);
 
@@ -174,7 +174,7 @@
 
             var insertElemenet = elementsTest.length - 1;
             var ele = "<div><p>" + elementsTest[insertElemenet].task +
-                "</p><br><p> Assigned To:" + elementsTest[insertElemenet].selectedAssigne +
+                "</p><br><p> Assigned to :" + elementsTest[insertElemenet].selectedAssigne +
                 "<button class='btn3' onclick='addToComplete(\"" + insertElemenet + "\")'>Test Complete</button></p>" +
                 "<button class='btn2' onclick='goBack(\"" + insertElemenet + "\")'>Back to Dev</button> </div>";
 
@@ -185,7 +185,7 @@
             for (var p = 0; p < elementsDev.length; p++) {
 
                 oldEle = oldEle + "<div><p>" + elementsDev[p].task +
-                    "</p><br><p> Assigned To:" + elementsDev[p].selectedAssigne +
+                    "</p><br><p> Assigned to :" + elementsDev[p].selectedAssigne +
                     "<button class='btn1' onclick='addToTesting(\"" + p + "\")'>Dev Complete</button> </div>";
 
             }
@@ -211,7 +211,7 @@
             }
             var insertElemenet = elementsCompl.length - 1;
             var ele = "<div><p>" + elementsCompl[insertElemenet].task +
-                "</p><br><p> Assigned To:" + elementsCompl[insertElemenet].selectedAssigne +
+                "</p><br><p> Assigned to :" + elementsCompl[insertElemenet].selectedAssigne +
                 "</div>";
             $("#compTarget").append(ele);
 
@@ -219,7 +219,7 @@
             var oldEle = "";
             for (var p = 0; p < elementsTest.length; p++) {
                 oldEle = oldEle + "<div><p>" + elementsTest[p].task +
-                    "</p><br><p> Assigned To:" + elementsTest[p].selectedAssigne +
+                    "</p><br><p> Assigned to :" + elementsTest[p].selectedAssigne +
                     "<button class='btn3' onclick='addToComplete(\"" + p + "\")'>Test" + " Complete</button></p>" +
                     "<button class='btn2' onclick='goBack(\"" + p + "\")'>Back to Dev</button></div>";
 
@@ -247,7 +247,7 @@
             var backIndex = elementsDev.length;
             var insertElemenet = backObject.length - 1;
             var ele = "<div><p>" + backObject[insertElemenet].task +
-                "</p><br><p> Assigned To:" + backObject[insertElemenet].selectedAssigne +
+                "</p><br><p> Assigned to :" + backObject[insertElemenet].selectedAssigne +
                 "<button class='btn1' onclick='addToTesting(\"" + backIndex + "\")'>Dev Complete</button> </div>";
             $("#devTarget").append(ele);
 
@@ -255,7 +255,7 @@
             var oldEle = "";
             for (var p = 0; p < elementsTest.length; p++) {
                 oldEle = oldEle + "<div><p>" + elementsTest[p].task +
-                    "</p><br><p> Assigned To:" + elementsTest[p].selectedAssigne +
+                    "</p><br><p> Assigned to :" + elementsTest[p].selectedAssigne +
                     "<button class='btn3' onclick='addToComplete(\"" + p + "\")'>Dev Complete</button>" + "</p>" + "<button class='btn2' onclick='goBack(\"" + p + "\")'>Back to Dev</button></div>";
 
             }
