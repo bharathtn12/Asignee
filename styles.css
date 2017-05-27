@@ -155,7 +155,7 @@ header h1 {
     float: left;
 }
 .create-task {
-    margin: 20px 0;
+    margin: 30px 100px 30px 100px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -211,7 +211,7 @@ header h1 {
     border-color: #183b4f;
 }
 .assign-task {
-    margin: 20px 0;
+    margin: 30px 100px 30px 100px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -410,7 +410,7 @@ header h1 {
     overflow: hidden;
 }
 .compTarget div {
-    margin: 10px 5px 45px 10px;
+    margin: 10px 5px 20px 10px;
     border: 1px solid #ccc;
     overflow: hidden;
     padding: 10px 10px;
@@ -420,13 +420,14 @@ header h1 {
     font-family: 'Abhaya Libre';
     font-size: 16px;
     padding: 5px 0px 14px 0px;
+    margin: -8px 0px 2px 8px;
     float: left;
 }
 .btn2 {
     background: none!important;
     color: #183b4f;
     border: none;
-    padding: 0!important;
+    padding: 4px 29px 6px -11px;
     font: inherit;
     border-bottom: 1px solid #444;
     cursor: pointer;
@@ -434,5 +435,5 @@ header h1 {
     /* position: inherit; */
     /* right: 44px; */
     /* bottom: 41px; */
-    margin: 4px -4px 0px 100px;
+    margin: 3px -4px 0px 64px;
 }
