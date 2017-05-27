@@ -6,7 +6,7 @@ This is an project on assignment of the employees in software development life c
 
 http://assigne-bharath.surge.sh/
 
-## Technology used: HTML, CSS and Javascript Only. 
+## Technology used: HTML, CSS and Javascript Only 
 
 NO UI Frameworks like Bootstrap or Materialize is used.
 Color Codes are provided at the bottom of the Design as a Pallette, Please refer.
